@@ -22,13 +22,15 @@ const Products = () => {
             className="flex flex-col items-center pt-10 pb-2.5 space-y-2 border-2 border-current"
             key={index}
           >
-            <div className="image w-72 px-14 pt-10">
+            <div className="image w-72 px-14 pt-10 text-center">
               <img
                 className="w-40 h-32"
                 src={item.image}
                 alt="Product_image"
-              ></img>
+              />
               <h3>{item.title.slice(0, 20)}</h3>
+              <h4>Price: {item.price}$</h4>
+              <h4>Rating: {item.rating.rate}</h4>
             </div>
           </div>
         ))}
