@@ -11,8 +11,7 @@ import { StringContext } from "../Provider/StringContext";
 const Products = () => {
   const product = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  const [searchProduct, setSearchProduct] = useState("");
-  const { stringToPass } = useContext(StringContext);
+  const { stringToPass, searchWord } = useContext(StringContext);
 
   useEffect(() => {
     dispatch(fetchProductDetail());
@@ -20,32 +19,19 @@ const Products = () => {
 
   const fetchedProducts = product.products.productDetail;
 
-  const findProduct = (event) => {
-    setSearchProduct(event.target.value);
-  };
-
   const options = {
     includeScore: true,
-    // Search in `title`tags in array
     keys: ["title"],
   };
 
   const fuse = new Fuse(fetchedProducts, options);
 
-  const result = fuse.search(searchProduct);
+  const result = fuse.search(searchWord);
 
   const sortedData = _.sortBy(fetchedProducts, stringToPass);
 
   return (
     <div className="umair">
-      <div className="text-2xl pr-5">
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type={searchProduct}
-          onChange={findProduct}
-          placeholder="Search your product"
-        />
-      </div>
       {result.length > 0 ? (
         <div>
           <div className="grid grid-cols-4 bg-gray-100 w-screen">

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { StringContext } from "../Provider/StringContext";
 
 const Navbar = () => {
-  const { setStringToPass } = useContext(StringContext);
+  const { setStringToPass, setSearchWord } = useContext(StringContext);
 
   const handleNameClick = () => {
     setStringToPass("title");
@@ -19,15 +19,26 @@ const Navbar = () => {
     setStringToPass("price");
   };
 
+  const findProduct = (event) => {
+    setSearchWord(event.target.value);
+  };
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <span className="font-semibold text-xl tracking-tight">
+        <span className="font-semibold text-3xl tracking-tight">
           Zimo Products
         </span>
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
-        <div className="relative text-sm pr-5">
+        <div className="relative flex text-sm pr-5">
+          <div className="text-2xl pr-5">
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={findProduct}
+              placeholder="Search your product"
+            />
+          </div>
           <div className="inline-block relative w-28">
             <select
               onChange={(e) => {
