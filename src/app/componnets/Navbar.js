@@ -7,13 +7,6 @@ const Navbar = () => {
         <span className="font-semibold text-xl tracking-tight">Zimo Products</span>
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
-        <div className="text-sm pr-5">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            placeholder="Search your product"
-          />
-        </div>
         <div className="relative text-sm pr-5">
           <div className="inline-block relative w-28">
             <select className="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -41,17 +34,17 @@ const Navbar = () => {
         <div>
           <ul className="text-sm lg:flex-grow lg:flex lg:items-center lg:justify-end">
             <li className="mr-3">
-              <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black mr-4">
                   Homepage
               </Link>
             </li>
             <li className="mr-3">
-              <Link href="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+              <Link href="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black mr-4">
                   Contact
               </Link>
             </li>
             <li className="mr-3">
-              <Link href="/about" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+              <Link href="/about" className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black">
                   About
               </Link>
             </li>
