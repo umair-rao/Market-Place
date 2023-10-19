@@ -1,19 +1,51 @@
-import Link from 'next/link';
+"use client";
+
+import Link from "next/link";
+import { useContext } from "react";
+import { StringContext } from "../Provider/StringContext";
 
 const Navbar = () => {
+  const { setStringToPass } = useContext(StringContext);
+
+  const handleNameClick = () => {
+    setStringToPass("title");
+  };
+
+  const handleRatingClick = () => {
+    setStringToPass("rating.rate");
+  };
+
+  const handlePriceClick = () => {
+    setStringToPass("price");
+  };
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <span className="font-semibold text-xl tracking-tight">Zimo Products</span>
+        <span className="font-semibold text-xl tracking-tight">
+          Zimo Products
+        </span>
       </div>
       <div className="w-full block lg:flex lg:items-center lg:w-auto">
         <div className="relative text-sm pr-5">
           <div className="inline-block relative w-28">
-            <select className="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <select
+              onChange={(e) => {
+                const selectedValue = e.target.value;
+                if (selectedValue === "title") {
+                  handleNameClick();
+                } else if (selectedValue === "rating") {
+                  handleRatingClick();
+                } else if (selectedValue === "price") {
+                  handlePriceClick();
+                }
+              }}
+              className="block appearance-none w-full bg-white border border-gray-400 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            >
               <option value="" disabled selected hidden>
                 Sort by
               </option>
-              <option value="name">Name</option>
+              <option value="title">Title</option>
               <option value="rating">Rating</option>
               <option value="price">Price</option>
             </select>
@@ -34,18 +66,27 @@ const Navbar = () => {
         <div>
           <ul className="text-sm lg:flex-grow lg:flex lg:items-center lg:justify-end">
             <li className="mr-3">
-              <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black mr-4">
-                  Homepage
+              <Link
+                href="/"
+                className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black mr-4"
+              >
+                Homepage
               </Link>
             </li>
             <li className="mr-3">
-              <Link href="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black mr-4">
-                  Contact
+              <Link
+                href="/contact"
+                className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black mr-4"
+              >
+                Contact
               </Link>
             </li>
             <li className="mr-3">
-              <Link href="/about" className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black">
-                  About
+              <Link
+                href="/about"
+                className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black"
+              >
+                About
               </Link>
             </li>
           </ul>
