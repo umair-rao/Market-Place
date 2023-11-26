@@ -86,7 +86,7 @@ const Navbar = () => {
             </li>
             <li className="mr-3">
               <Link
-                href="/contact"
+                href="/Contact"
                 className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black mr-4"
               >
                 Contact
@@ -94,7 +94,7 @@ const Navbar = () => {
             </li>
             <li className="mr-3">
               <Link
-                href="/about"
+                href="/About"
                 className="block mt-4 lg:inline-block lg:mt-0 text-red-500 hover:text-black"
               >
                 About
